@@ -7,15 +7,14 @@ export const metadata: Metadata = {
   title: 'Recipes',
 };
 
-type SearchParams = {
-  searchParams: {
-    query?: string;
-    cuisine?: string;
-    maxReadyTime?: string;
-  };
-};
+type Params = Promise<{
+  query?: string;
+  cuisine?: string;
+  maxReadyTime?: string;
+}>;
 
-const Recipes = ({ searchParams }: SearchParams) => {
+const Recipes = async (props: { searchParams: Params }) => {
+  const searchParams = await props.searchParams;
   return (
     <div className="p-4 md:p-8 bg-gradient-to-b from-amber-50 to-orange-50">
       <div className="max-w-6xl mx-auto">
