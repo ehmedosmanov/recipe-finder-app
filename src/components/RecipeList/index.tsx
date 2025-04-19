@@ -8,6 +8,7 @@ const RecipeList = async ({
 }) => {
   const data = await getAllRecipes(searchParams);
   const recipes = data?.results;
+  console.log(recipes);
 
   if (!recipes || recipes?.length === 0) {
     return (
